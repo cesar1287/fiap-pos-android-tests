@@ -1,4 +1,4 @@
-package com.github.cesar1287.jogodavelha
+package com.github.cesar1287.jogodavelha.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
