@@ -166,6 +166,53 @@ class GameTest {
         assertTrue(hasGameEnded)
     }
 
+    @Test
+    fun endGameIfHasThreeSameVerticalCells() {
+        val cell = Cell(player)
+        game.cells[0][0] = cell
+        game.cells[1][0] = cell
+        game.cells[2][0] = cell
+        val hasGameEnded = game.hasGameEnded()
+        assertTrue(hasGameEnded)
+    }
+
+    @Test
+    fun endGameIfHasThreeSameDiagonalCells() {
+        val cell = Cell(player)
+        game.cells[0][0] = cell
+        game.cells[1][1] = cell
+        game.cells[2][2] = cell
+        val hasGameEnded = game.hasGameEnded()
+        assertTrue(hasGameEnded)
+    }
+
+    @Test
+    fun endGameIfBoardIsFull() {
+        val cell1 = Cell(player)
+        val cell2 = Cell(player)
+        val cell3 = Cell(anotherPlayer)
+        val cell4 = Cell(anotherPlayer)
+        val cell5 = Cell(player)
+        val cell6 = Cell(player)
+        val cell7 = Cell(player)
+        val cell8 = Cell(anotherPlayer)
+        val cell9 = Cell(anotherPlayer)
+
+        game.cells[0][0] = cell1
+        game.cells[0][1] = cell2
+        game.cells[0][2] = cell3
+        game.cells[1][0] = cell4
+        game.cells[1][1] = cell5
+        game.cells[1][2] = cell6
+        game.cells[2][0] = cell7
+        game.cells[2][1] = cell8
+        game.cells[2][2] = cell9
+
+        val hasGameEnded = game.hasGameEnded()
+
+        assertTrue(hasGameEnded)
+    }
+
     //00 01 02
     //10 11 12
     //20 21 22

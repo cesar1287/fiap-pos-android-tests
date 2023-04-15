@@ -10,7 +10,7 @@ class Game(playerOne: String, playerTwo: String) {
 
     var currentPlayer = player1
     var cells: Array<Array<Cell?>>
-    var winner: MutableLiveData<Player> = MutableLiveData()
+    var winner: MutableLiveData<Player?> = MutableLiveData()
 
     init {
         cells = Array(BOARD_SIZE) { arrayOfNulls(BOARD_SIZE) }
@@ -19,7 +19,7 @@ class Game(playerOne: String, playerTwo: String) {
         currentPlayer = player1
     }
 
-    val isBoardFull: Boolean
+    private val isBoardFull: Boolean
         get() {
             for (row in cells)
                 for (cell in row)
@@ -96,8 +96,14 @@ class Game(playerOne: String, playerTwo: String) {
             return true
         }
 
+        if (isBoardFull) {
+            winner.value = null
+            return true
+        }
+
         return false
     }
+
 
 
     companion object {
