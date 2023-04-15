@@ -64,6 +64,21 @@ class Game(playerOne: String, playerTwo: String) {
         }
     }
 
+    fun hasThreeSameVerticalCells(): Boolean {
+        return try {
+            for (i in 0 until BOARD_SIZE) if (areEqual(
+                    cells[0][i],cells[1][i],cells[2][i]
+                )
+            ) return true
+            false
+        } catch (e: java.lang.NullPointerException) {
+            Log.e(TAG, e.message.orEmpty())
+            false
+        }
+    }
+
+
+
     companion object {
         private val TAG = Game::class.java.simpleName
         private const val BOARD_SIZE = 3

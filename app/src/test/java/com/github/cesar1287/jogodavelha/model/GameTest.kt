@@ -69,6 +69,40 @@ class GameTest {
         assertFalse(hasThreeSameHorizontalCells)
     }
 
+    @Test
+    @Throws(Exception::class)
+    fun returnTrueIfHasThreeSameVerticalCellsAtColumn1() {
+        val cell = Cell(player)
+        game.cells[0][0] = cell
+        game.cells[1][0] = cell
+        game.cells[2][0] = cell
+        val hasThreeSameVerticalCells = game.hasThreeSameVerticalCells()
+        assertTrue(hasThreeSameVerticalCells)
+    }
+
+    @Test
+    @Throws(Exception::class)
+    fun returnTrueIfHasThreeSameVerticalCellsAtColumn2() {
+        val cell = Cell(player)
+        game.cells[0][1] = cell
+        game.cells[1][1] = cell
+        game.cells[2][1] = cell
+        val hasThreeSameVerticalCells = game.hasThreeSameVerticalCells()
+        assertTrue(hasThreeSameVerticalCells)
+    }
+
+    @Test
+    @Throws(Exception::class)
+    fun returnTrueIfHasThreeSameVerticalCellsAtColumn3() {
+        val cell = Cell(player)
+        game.cells[0][2] = cell
+        game.cells[1][2] = cell
+        game.cells[2][2] = cell
+        val hasThreeSameVerticalCells = game.hasThreeSameVerticalCells()
+        assertTrue(hasThreeSameVerticalCells)
+    }
+
+
     //00 01 02
     //10 11 12
     //20 21 22
