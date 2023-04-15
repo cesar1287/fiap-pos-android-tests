@@ -25,7 +25,6 @@ class GameTest {
         anotherPlayer = game.player2
     }
 
-
     @Test
     fun returnTrueIfHasThreeSameHorizontalCellsAtRow1() {
         val cell = Cell(player)

@@ -2,6 +2,7 @@ package com.github.cesar1287.jogodavelha.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.annotation.VisibleForTesting
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.github.cesar1287.jogodavelha.R
@@ -47,7 +48,7 @@ class GameActivity : AppCompatActivity() {
         viewModel.winner.observe(this) { this.onGameWinnerChanged(it) }
     }
 
-    private fun onGameWinnerChanged(winner: Player?) {
+    internal fun onGameWinnerChanged(winner: Player?) {
         val winnerName = if (winner == null || winner.name.isEmpty()) NO_WINNER else winner.name
         val dialog = GameEndDialog.newInstance(this, winnerName)
         dialog.isCancelable = false
