@@ -77,7 +77,18 @@ class Game(playerOne: String, playerTwo: String) {
         }
     }
 
-
+    fun hasThreeSameDiagonalCells(): Boolean {
+        return try {
+            (areEqual(cells[0][0], cells[1][1], cells[2][2]) || areEqual(
+                cells[0][2],
+                cells[1][1],
+                cells[2][0]
+            ))
+        } catch (e: NullPointerException) {
+            Log.e(TAG, e.message.orEmpty())
+            false
+        }
+    }
 
     companion object {
         private val TAG = Game::class.java.simpleName
