@@ -51,7 +51,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.6.1"
 
     //Testes unitários
-    testImplementation "androidx.arch.core:core-testing:2.2.0"
+    testImplementation 'androidx.arch.core:core-testing:2.2.0'
     testImplementation 'junit:junit:4.13.2'
 
     //Biblioteca para teste de interface

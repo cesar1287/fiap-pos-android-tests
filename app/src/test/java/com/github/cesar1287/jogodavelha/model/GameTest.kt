@@ -1,11 +1,17 @@
 package com.github.cesar1287.jogodavelha.model
 
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 
 class GameTest {
+
+    @Rule
+    @JvmField
+    val rule = InstantTaskExecutorRule()
 
     private lateinit var game: Game
     private var player: Player? = null
@@ -148,6 +154,16 @@ class GameTest {
         game.cells[2][0] = anotherCell
         val hasThreeSameDiagonalCells = game.hasThreeSameDiagonalCells()
         assertFalse(hasThreeSameDiagonalCells)
+    }
+
+    @Test
+    fun endGameIfHasThreeSameHorizontalCells() {
+        val cell = Cell(player)
+        game.cells[0][0] = cell
+        game.cells[0][1] = cell
+        game.cells[0][2] = cell
+        val hasGameEnded = game.hasGameEnded()
+        assertTrue(hasGameEnded)
     }
 
     //00 01 02

@@ -90,6 +90,16 @@ class Game(playerOne: String, playerTwo: String) {
         }
     }
 
+    fun hasGameEnded(): Boolean {
+        if (hasThreeSameHorizontalCells() || hasThreeSameVerticalCells() || hasThreeSameDiagonalCells()) {
+            winner.value = currentPlayer
+            return true
+        }
+
+        return false
+    }
+
+
     companion object {
         private val TAG = Game::class.java.simpleName
         private const val BOARD_SIZE = 3
